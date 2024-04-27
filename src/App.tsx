@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { useState } from 'react';
 import Guitar from './components/Guitar.tsx';
 import Header from './components/Header.tsx';
 import { useCart } from './hooks/useCart';

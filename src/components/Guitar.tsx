@@ -1,9 +1,15 @@
-const Guitar = ({ guitar, addToCart }) => {
+type Guitar = {
+  id: number;
+  name: string;  
+  image: string;
+  description: string;
+  price: number;
+}
+
+
+const Guitar = ({ guitar, addToCart } : {guitar: Guitar, addToCart: (item: Guitar) => void}) => {
   const { id, name, description, image, price } = guitar;
 
-  // const handleClick = (guitar) => {
-  //   setCart([...cart, guitar]); //Toma una copia de lo que tiene el carrito y le agrega un nuevo elemento
-  // };
 
   return (
     <>
