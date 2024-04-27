@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import PropTypes from 'prop-types';
 
 const Header = ({
   cart,
@@ -10,6 +9,7 @@ const Header = ({
   isEmpty,
   cartTotal,
 }) => {
+
   return (
     <header className="py-5 header">
       <div className="container-xl">
@@ -111,13 +111,4 @@ const Header = ({
   );
 };
 
-Header.propTypes = {
-  cart: PropTypes.array.isRequired,
-  removeToCart: PropTypes.func.isRequired,
-  increaseQuantity: PropTypes.func.isRequired,
-  decrementQuantity: PropTypes.func.isRequired,
-  clearCart: PropTypes.func.isRequired,
-  isEmpty: PropTypes.func,
-  cartTotal: PropTypes.number,
-};
 export default Header;

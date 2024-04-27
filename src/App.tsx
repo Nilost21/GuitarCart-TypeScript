@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
-
-import Guitar from './components/Guitar.jsx';
-import Header from './components/Header.jsx';
-
-import { useCart } from './hooks/useCart.js';
+import { useState } from 'react';
+import Guitar from './components/Guitar.tsx';
+import Header from './components/Header.tsx';
+import { useCart } from './hooks/useCart';
 
 function App() {
   const {

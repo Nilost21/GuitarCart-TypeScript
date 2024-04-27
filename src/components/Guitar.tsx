@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-import PropTypes from 'prop-types';
-
 const Guitar = ({ guitar, addToCart }) => {
   const { id, name, description, image, price } = guitar;
 
@@ -35,9 +32,6 @@ const Guitar = ({ guitar, addToCart }) => {
   );
 };
 
-Guitar.propTypes = {
-  guitar: PropTypes.object.isRequired,
-  addToCart: PropTypes.func.isRequired,
-};
+
 
 export default Guitar;
