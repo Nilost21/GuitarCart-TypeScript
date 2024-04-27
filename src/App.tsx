@@ -3,7 +3,7 @@ function App() {
 
   return (
     <>
-     <h1>DEV</h1>
+     <h1>TypeScript</h1>
     </>
   )
 }
