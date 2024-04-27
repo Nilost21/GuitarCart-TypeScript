@@ -1,21 +1,4 @@
-type Guitar = {
-  id: number;
-  name: string;  
-  image: string;
-  description: string;
-  price: number;
-}
-
-//! La otra opción es utilizarla como interface:
-
-// interface Guitar  {
-//   id: number;
-//   name: string;  
-//   image: string;
-//   description: string;
-//   price: number;
-// }
-
+import type {Guitar} from'../types/types'
 
 export const db : Guitar[]  = [
   {
