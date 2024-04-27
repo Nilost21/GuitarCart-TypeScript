@@ -1,8 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { db } from '../data/db.js';
+import type {Guitar, CartItem } from '../types/types';
+
 
 export const useCart = () => {
-  const initialCart = () => {
+
+  const initialCart = () : CartItem[] => {
     const localStorageCart = localStorage.getItem('cart');
     return localStorageCart ? JSON.parse(localStorageCart) : [];
   };
@@ -20,7 +23,7 @@ export const useCart = () => {
 
   //? FUNCIÓN PARA AGREGAR AL CARRITO
   //* Esta función toma como parámetro un item que iremos agregando
-  const addToCart = (item) => {
+  const addToCart = (item : Guitar)  => {
     //Recorremos el carrito buscando en base el index, y comparamos si el id del objeto es igual al id del id del item
     const itemIndex = cart.findIndex((guitar) => guitar.id === item.id); //Nos retorna -1 si no encontró una coincidencia en base a nuestra condición
 
@@ -38,16 +41,16 @@ export const useCart = () => {
       });
       setCart(updatedCart);
     } else {
-      const newItem = { ...item, quantity: 1 };
+      const newItem : CartItem = { ...item, quantity: 1 };
       setCart([...cart, newItem]);
     }
   };
 
-  const removeToCart = (id) => {
+  const removeToCart = (id : Guitar['id']) => {
     setCart((prevCart) => prevCart.filter((guitar) => guitar.id !== id));
   };
 
-  const increaseQuantity = (id) => {
+  const increaseQuantity = (id: Guitar['id']) => {
     const updateCart = cart.map((item) => {
       if (item.id === id && item.quantity < MAX_ITEMS) {
         return {
@@ -60,7 +63,7 @@ export const useCart = () => {
     setCart(updateCart);
   };
 
-  const decrementQuantity = (id) => {
+  const decrementQuantity = (id : Guitar['id']) => {
     const updateCart = cart.map((item) => {
       if (item.id === id && item.quantity > MIN_ITEMS) {
         return {
@@ -77,12 +80,8 @@ export const useCart = () => {
     setCart([]);
   };
 
-  const isEmpty = () => cart.length === 0;
-
-  const cartTotal = useMemo(
-    () => cart.reduce((total, item) => total + item.quantity * item.price, 0),
-    [cart]
-  );
+  const isEmpty = useMemo( () => cart.length === 0, [cart])
+    const cartTotal = useMemo( () => cart.reduce( (total, item ) => total + (item.quantity * item.price), 0), [cart] )
 
   return {
     cart,
